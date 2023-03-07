@@ -20,6 +20,10 @@ To use GptCli, run the following command:
 
 `gptcli "Create a rake task with namespace pmo123 and name Remove all tags", "pmo123.rake"`
 
+The first parameter is the prompts, the second is the file name where the result is stored.
+
+If the filename is not provided, it will be saved in `gpt_output-2023-03-07_17:05:43.txt`
+
 ## Contributing
 
 Contributions are welcome! If you have any feature requests or bug reports, please submit an issue or a pull request.

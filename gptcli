@@ -9,7 +9,7 @@ ENV = Hash[*file.split("=").flatten(1)]
 
 url = "https://api.openai.com/v1/completions"
 prompt = ARGV[0] + " .Return only the code."
-filename = ARGV[1] || "output.txt"
+filename = ARGV[1] || "gpt_output-#{Time.now.strftime("%Y-%m-%d_%H:%M:%S")}.txt"
 
 headers = {
   "Authorization": "Bearer #{ENV['OPENAI_ACCESS_TOKEN']}",

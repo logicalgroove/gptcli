@@ -4,22 +4,21 @@ GptCli is a command-line tool that helps developers generate code snippets and t
 
 ## Installation
 
-To install CodeGenie, run the following command:
-
-`bundle install`
-
 Get your OpenAI API key at [OpenAI website](https://beta.openai.com/signup/).
 
 `cp .env-example .env`
 
-Add you key to .env file
+Add you key to .env file.
+
+Create a symbolic link in local executable folder:
+
+`ln -s $PWD/gptcli /usr/local/bin/`
 
 ## Usage
 
 To use GptCli, run the following command:
 
-`gptcli "Create a rake task with namespace pmo123 and name Remove all tags"`
-
+`gptcli "Create a rake task with namespace pmo123 and name Remove all tags", "pmo123.rake"`
 
 ## Contributing
 

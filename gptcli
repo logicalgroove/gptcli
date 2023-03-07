@@ -1,17 +1,20 @@
 #!/usr/bin/env ruby
 
-require 'dotenv/load'
-require 'httparty'
+require "uri"
+require "net/http"
+require "json"
+
+file = File.read(".env").split[0]
+ENV = Hash[*file.split("=").flatten(1)]
 
 url = "https://api.openai.com/v1/completions"
+prompt = ARGV[0] + " .Return only the code."
+filename = ARGV[1] || "output.txt"
 
 headers = {
   "Authorization": "Bearer #{ENV['OPENAI_ACCESS_TOKEN']}",
   "Content-Type": "application/json"
 }
-
-prompt = ARGV[0] + " .Return only the code."
-filename = ARGV[1] || "output.txt"
 
 data = {
   model: "text-davinci-003",
@@ -20,7 +23,7 @@ data = {
   max_tokens: 300
 }
 
-response = HTTParty.post(url, headers: headers, body: data.to_json)
+response = Net::HTTP.post(URI(url), data.to_json, headers)
 
 json = JSON.parse(response.body)
 

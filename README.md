@@ -18,11 +18,19 @@ Create a symbolic link in local executable folder:
 
 To use GptCli, run the following command:
 
+### Generate code snipets and scaffolds
+
 `gptcli "Create a rake task with namespace pmo123 and name Remove all tags", "pmo123.rake"`
 
 The first parameter is the prompts, the second is the file name where the result is stored.
 
 If the filename is not provided, it will be saved in `gpt_output-2023-03-07_17:05:43.txt`
+
+### Create a git commit message of the current diff
+
+`gptcli gcm`
+
+It will print out the commit message.
 
 ## Contributing
 
